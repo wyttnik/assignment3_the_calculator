@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="mmcs.assignment3_calculator.viewmodel.Operation" />
         <variable
             name="viewModel"
             type="mmcs.assignment3_calculator.viewmodel.Calculator" />
