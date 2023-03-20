@@ -7,6 +7,7 @@ import mmcs.assignment3_calculator.R
 import mmcs.assignment3_calculator.databinding.ActivityMainBinding
 import mmcs.assignment3_calculator.viewmodel.Calculator
 import mmcs.assignment3_calculator.viewmodel.CalculatorViewModel
+import mmcs.assignment3_calculator.viewmodel.Operation
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,5 +22,18 @@ class MainActivity : AppCompatActivity() {
         viewModel = CalculatorViewModel()
 
         mainBinding.viewModel = viewModel
+
+        mainBinding.divButton.setOnClickListener {
+            viewModel.addOperation(Operation.DIV)
+        }
+        mainBinding.prodButton.setOnClickListener {
+            viewModel.addOperation(Operation.MUL)
+        }
+        mainBinding.plusButton.setOnClickListener {
+            viewModel.addOperation(Operation.ADD)
+        }
+        mainBinding.minusButton.setOnClickListener {
+            viewModel.addOperation(Operation.SUB)
+        }
     }
 }

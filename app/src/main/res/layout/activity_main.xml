@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="mmcs.assignment3_calculator.viewmodel.Operation" />
         <variable
             name="viewModel"
             type="mmcs.assignment3_calculator.viewmodel.Calculator" />
@@ -14,6 +13,245 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/calc" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/digitsField"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.73"
+            app:layout_constraintHeight_percent="0.62"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/dotButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addPoint()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/digit0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/digit1"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(0)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/equalityButton"
+                app:layout_constraintStart_toEndOf="@id/dotButton"
+                app:layout_constraintTop_toBottomOf="@id/digit2"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/equalityButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.compute()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/digit0"
+                app:layout_constraintTop_toBottomOf="@id/digit3"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(1)}"
+                app:layout_constraintBottom_toTopOf="@id/dotButton"
+                app:layout_constraintEnd_toStartOf="@id/digit2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/digit4"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(2)}"
+                app:layout_constraintBottom_toTopOf="@id/digit0"
+                app:layout_constraintEnd_toStartOf="@id/digit3"
+                app:layout_constraintStart_toEndOf="@id/digit1"
+                app:layout_constraintTop_toBottomOf="@id/digit5"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(3)}"
+                app:layout_constraintBottom_toTopOf="@id/equalityButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/digit2"
+                app:layout_constraintTop_toBottomOf="@id/digit6"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(4)}"
+                app:layout_constraintBottom_toTopOf="@id/digit1"
+                app:layout_constraintEnd_toStartOf="@id/digit5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/digit7"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(5)}"
+                app:layout_constraintBottom_toTopOf="@id/digit2"
+                app:layout_constraintEnd_toStartOf="@id/digit6"
+                app:layout_constraintStart_toEndOf="@id/digit4"
+                app:layout_constraintTop_toBottomOf="@id/digit8"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(6)}"
+                app:layout_constraintBottom_toTopOf="@id/digit3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/digit5"
+                app:layout_constraintTop_toBottomOf="@id/digit9"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(7)}"
+                app:layout_constraintBottom_toTopOf="@id/digit4"
+                app:layout_constraintEnd_toStartOf="@id/digit8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(8)}"
+                app:layout_constraintBottom_toTopOf="@id/digit5"
+                app:layout_constraintEnd_toStartOf="@id/digit9"
+                app:layout_constraintStart_toEndOf="@id/digit7"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/digit9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.addDigit(9)}"
+                app:layout_constraintBottom_toTopOf="@id/digit6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/digit8"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/operationsField"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintHeight_percent="0.62"
+            app:layout_constraintStart_toEndOf="@id/digitsField"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/emptyZone">
+
+            <Button
+                android:id="@+id/plusButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.23"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/minusButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/plusButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prodButton"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/prodButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/minusButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divButton"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/divButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/prodButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/resetButton"
+                android:background="@android:color/transparent"
+                />
+
+            <ImageButton
+                android:id="@+id/resetButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.clear()}"
+                app:layout_constraintHeight_percent="0.21"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/emptyZone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.62"
+            app:layout_constraintStart_toEndOf="@id/operationsField"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/inputEquation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center|right"
+            android:text="@{viewModel.display}"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@id/digitsField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
